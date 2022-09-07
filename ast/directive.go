@@ -28,14 +28,14 @@ const (
 )
 
 type Directive struct {
-	Name      string
-	Arguments ArgumentList
-	Position  *Position `dump:"-" json:"-"`
+	Name      string       `json:"name,omitempty"`
+	Arguments ArgumentList `json:"arguments,omitempty"`
+	Position  *Position    `dump:"-" json:"-"`
 
 	// Requires validation
-	ParentDefinition *Definition
-	Definition       *DirectiveDefinition
-	Location         DirectiveLocation
+	ParentDefinition *Definition          `json:"parentDefinition,omitempty"`
+	Definition       *DirectiveDefinition `json:"definition,omitempty"`
+	Location         DirectiveLocation    `json:"location,omitempty"`
 }
 
 func (d *Directive) ArgumentMap(vars map[string]interface{}) map[string]interface{} {

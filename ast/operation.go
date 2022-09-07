@@ -9,22 +9,22 @@ const (
 )
 
 type OperationDefinition struct {
-	Operation           Operation
-	Name                string
-	VariableDefinitions VariableDefinitionList
-	Directives          DirectiveList
-	SelectionSet        SelectionSet
-	Position            *Position `dump:"-" json:"-"`
+	Operation           Operation              `json:"operation,omitempty"`
+	Name                string                 `json:"name,omitempty"`
+	VariableDefinitions VariableDefinitionList `json:"variableDefinitions,omitempty"`
+	Directives          DirectiveList          `json:"directives,omitempty"`
+	SelectionSet        SelectionSet           `json:"selectionSet,omitempty"`
+	Position            *Position              `dump:"-" json:"-"`
 }
 
 type VariableDefinition struct {
-	Variable     string
-	Type         *Type
-	DefaultValue *Value
-	Directives   DirectiveList
-	Position     *Position `dump:"-" json:"-"`
+	Variable     string        `json:"variable,omitempty"`
+	Type         *Type         `json:"type,omitempty"`
+	DefaultValue *Value        `json:"defaultValue,omitempty"`
+	Directives   DirectiveList `json:"directives,omitempty"`
+	Position     *Position     `dump:"-" json:"-"`
 
 	// Requires validation
-	Definition *Definition
-	Used       bool `dump:"-"`
+	Definition *Definition `json:"definition,omitempty"`
+	Used       bool        `dump:"-" json:"used,omitempty"`
 }

@@ -1,38 +1,38 @@
 package ast
 
 type FragmentSpread struct {
-	Name       string
-	Directives DirectiveList
+	Name       string        `json:"name,omitempty"`
+	Directives DirectiveList `json:"directives,omitempty"`
 
 	// Require validation
-	ObjectDefinition *Definition
-	Definition       *FragmentDefinition
+	ObjectDefinition *Definition         `json:"objectDefinition,omitempty"`
+	Definition       *FragmentDefinition `json:"definition,omitempty"`
 
 	Position *Position `dump:"-" json:"-"`
 }
 
 type InlineFragment struct {
-	TypeCondition string
-	Directives    DirectiveList
-	SelectionSet  SelectionSet
+	TypeCondition string        `json:"typeCondition,omitempty"`
+	Directives    DirectiveList `json:"directives,omitempty"`
+	SelectionSet  SelectionSet  `json:"selectionSet,omitempty"`
 
 	// Require validation
-	ObjectDefinition *Definition
+	ObjectDefinition *Definition `json:"objectDefinition,omitempty"`
 
 	Position *Position `dump:"-" json:"-"`
 }
 
 type FragmentDefinition struct {
-	Name string
+	Name string `json:"name,omitempty"`
 	// Note: fragment variable definitions are experimental and may be changed
 	// or removed in the future.
-	VariableDefinition VariableDefinitionList
-	TypeCondition      string
-	Directives         DirectiveList
-	SelectionSet       SelectionSet
+	VariableDefinition VariableDefinitionList `json:"variableDefinition,omitempty"`
+	TypeCondition      string                 `json:"typeCondition,omitempty"`
+	Directives         DirectiveList          `json:"directives,omitempty"`
+	SelectionSet       SelectionSet           `json:"selectionSet,omitempty"`
 
 	// Require validation
-	Definition *Definition
+	Definition *Definition `json:"definition,omitempty"`
 
 	Position *Position `dump:"-" json:"-"`
 }

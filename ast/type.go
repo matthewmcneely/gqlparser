@@ -17,9 +17,9 @@ func ListType(elem *Type, pos *Position) *Type {
 }
 
 type Type struct {
-	NamedType string
-	Elem      *Type
-	NonNull   bool
+	NamedType string    `json:"namedType,omitempty"`
+	Elem      *Type     `json:"elem,omitempty"`
+	NonNull   bool      `json:"nonNull"`
 	Position  *Position `dump:"-" json:"-"`
 }
 

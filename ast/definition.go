@@ -20,17 +20,17 @@ const (
 //
 // Type extensions are also represented by this same struct.
 type Definition struct {
-	Kind        DefinitionKind
-	Description string
-	Name        string
-	Directives  DirectiveList
-	Interfaces  []string      // object and input object
-	Fields      FieldList     // object and input object
-	Types       []string      // union
-	EnumValues  EnumValueList // enum
+	Kind        DefinitionKind `json:"kind,omitempty"`
+	Description string         `json:"description,omitempty"`
+	Name        string         `json:"name,omitempty"`
+	Directives  DirectiveList  `json:"directives,omitempty"`
+	Interfaces  []string       `json:"interfaces,omitempty"` // object and input object
+	Fields      FieldList      `json:"fields,omitempty"`     // object and input object
+	Types       []string       `json:"types,omitempty"`      // union
+	EnumValues  EnumValueList  `json:"enumValues,omitempty"` // enum
 
 	Position *Position `dump:"-" json:"-"`
-	BuiltIn  bool      `dump:"-"`
+	BuiltIn  bool      `dump:"-" json:"-"`
 }
 
 func (d *Definition) IsLeafType() bool {
@@ -59,36 +59,36 @@ func (d *Definition) OneOf(types ...string) bool {
 }
 
 type FieldDefinition struct {
-	Description  string
-	Name         string
-	Arguments    ArgumentDefinitionList // only for objects
-	DefaultValue *Value                 // only for input objects
-	Type         *Type
-	Directives   DirectiveList
-	Position     *Position `dump:"-" json:"-"`
+	Description  string                 `json:"description,omitempty"`
+	Name         string                 `json:"name,omitempty"`
+	Arguments    ArgumentDefinitionList `json:"arguments,omitempty"`    // only for objects
+	DefaultValue *Value                 `json:"defaultValue,omitempty"` // only for input objects
+	Type         *Type                  `json:"type,omitempty"`
+	Directives   DirectiveList          `json:"directives,omitempty"`
+	Position     *Position              `dump:"-" json:"-"`
 }
 
 type ArgumentDefinition struct {
-	Description  string
-	Name         string
-	DefaultValue *Value
-	Type         *Type
-	Directives   DirectiveList
-	Position     *Position `dump:"-" json:"-"`
+	Description  string        `json:"description,omitempty"`
+	Name         string        `json:"name,omitempty"`
+	DefaultValue *Value        `json:"defaultValue,omitempty"`
+	Type         *Type         `json:"type,omitempty"`
+	Directives   DirectiveList `json:"directives,omitempty"`
+	Position     *Position     `dump:"-" json:"-"`
 }
 
 type EnumValueDefinition struct {
-	Description string
-	Name        string
-	Directives  DirectiveList
-	Position    *Position `dump:"-" json:"-"`
+	Description string        `json:"description,omitempty"`
+	Name        string        `json:"name,omitempty"`
+	Directives  DirectiveList `json:"directives,omitempty"`
+	Position    *Position     `dump:"-" json:"-"`
 }
 
 type DirectiveDefinition struct {
-	Description  string
-	Name         string
-	Arguments    ArgumentDefinitionList
-	Locations    []DirectiveLocation
-	IsRepeatable bool
-	Position     *Position `dump:"-" json:"-"`
+	Description  string                 `json:"description,omitempty"`
+	Name         string                 `json:"name,omitempty"`
+	Arguments    ArgumentDefinitionList `json:"arguments,omitempty"`
+	Locations    []DirectiveLocation    `json:"locations,omitempty"`
+	IsRepeatable bool                   `json:"isRepeatable,omitempty"`
+	Position     *Position              `dump:"-" json:"-"`
 }

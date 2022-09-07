@@ -16,21 +16,21 @@ func (s *FragmentSpread) GetPosition() *Position { return s.Position }
 func (s *InlineFragment) GetPosition() *Position { return s.Position }
 
 type Field struct {
-	Alias        string
-	Name         string
-	Arguments    ArgumentList
-	Directives   DirectiveList
-	SelectionSet SelectionSet
-	Position     *Position `dump:"-" json:"-"`
+	Alias        string        `json:"alias,omitempty"`
+	Name         string        `json:"name,omitempty"`
+	Arguments    ArgumentList  `json:"arguments,omitempty"`
+	Directives   DirectiveList `json:"directives,omitempty"`
+	SelectionSet SelectionSet  `json:"selectionSet,omitempty"`
+	Position     *Position     `dump:"-" json:"-"`
 
 	// Require validation
-	Definition       *FieldDefinition
-	ObjectDefinition *Definition
+	Definition       *FieldDefinition `json:"definition,omitempty"`
+	ObjectDefinition *Definition      `json:"objectDefinition,omitempty"`
 }
 
 type Argument struct {
-	Name     string
-	Value    *Value
+	Name     string    `json:"name,omitempty"`
+	Value    *Value    `json:"value,omitempty"`
 	Position *Position `dump:"-" json:"-"`
 }
 

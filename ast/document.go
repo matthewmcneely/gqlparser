@@ -1,18 +1,18 @@
 package ast
 
 type QueryDocument struct {
-	Operations OperationList
-	Fragments  FragmentDefinitionList
-	Position   *Position `dump:"-" json:"-"`
+	Operations OperationList          `json:"operations,omitempty"`
+	Fragments  FragmentDefinitionList `json:"fragments,omitempty"`
+	Position   *Position              `dump:"-" json:"-"`
 }
 
 type SchemaDocument struct {
-	Schema          SchemaDefinitionList
-	SchemaExtension SchemaDefinitionList
-	Directives      DirectiveDefinitionList
-	Definitions     DefinitionList
-	Extensions      DefinitionList
-	Position        *Position `dump:"-" json:"-"`
+	Schema          SchemaDefinitionList    `json:"schema,omitempty"`
+	SchemaExtension SchemaDefinitionList    `json:"schemaExtension,omitempty"`
+	Directives      DirectiveDefinitionList `json:"directives,omitempty"`
+	Definitions     DefinitionList          `json:"definitions,omitempty"`
+	Extensions      DefinitionList          `json:"extensions,omitempty"`
+	Position        *Position               `dump:"-" json:"-"`
 }
 
 func (d *SchemaDocument) Merge(other *SchemaDocument) {
@@ -66,14 +66,14 @@ func (s *Schema) GetImplements(def *Definition) []*Definition {
 }
 
 type SchemaDefinition struct {
-	Description    string
-	Directives     DirectiveList
-	OperationTypes OperationTypeDefinitionList
-	Position       *Position `dump:"-" json:"-"`
+	Description    string                      `json:"description,omitempty"`
+	Directives     DirectiveList               `json:"directives,omitempty"`
+	OperationTypes OperationTypeDefinitionList `json:"operationTypes,omitempty"`
+	Position       *Position                   `dump:"-" json:"-"`
 }
 
 type OperationTypeDefinition struct {
-	Operation Operation
-	Type      string
+	Operation Operation `json:"operation,omitempty"`
+	Type      string    `json:"type,omitempty"`
 	Position  *Position `dump:"-" json:"-"`
 }

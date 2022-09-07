@@ -22,20 +22,20 @@ const (
 )
 
 type Value struct {
-	Raw      string
-	Children ChildValueList
-	Kind     ValueKind
-	Position *Position `dump:"-" json:"-"`
+	Raw      string         `json:"raw,omitempty"`
+	Children ChildValueList `json:"children,omitempty"`
+	Kind     ValueKind      `json:"kind,omitempty"`
+	Position *Position      `dump:"-" json:"-"`
 
 	// Require validation
-	Definition         *Definition
-	VariableDefinition *VariableDefinition
-	ExpectedType       *Type
+	Definition         *Definition         `json:"definition,omitempty"`
+	VariableDefinition *VariableDefinition `json:"variableDefinition,omitempty"`
+	ExpectedType       *Type               `json:"expectedType,omitempty"`
 }
 
 type ChildValue struct {
-	Name     string
-	Value    *Value
+	Name     string    `json:"name,omitempty"`
+	Value    *Value    `json:"value,omitempty"`
 	Position *Position `dump:"-" json:"-"`
 }
 
