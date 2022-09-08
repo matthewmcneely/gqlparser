@@ -1,13 +1,13 @@
 package validator
 
 import (
-	"github.com/vektah/gqlparser/v2/gqlerror"
+	"github.com/matthewmcneely/gqlparser/gqlerror"
 	"os"
 	"testing"
 
+	"github.com/matthewmcneely/gqlparser/ast"
+	"github.com/matthewmcneely/gqlparser/parser/testrunner"
 	"github.com/stretchr/testify/require"
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/parser/testrunner"
 )
 
 func TestLoadSchema(t *testing.T) {

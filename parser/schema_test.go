@@ -1,11 +1,11 @@
 package parser
 
 import (
-	"github.com/vektah/gqlparser/v2/gqlerror"
+	"github.com/matthewmcneely/gqlparser/gqlerror"
 	"testing"
 
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/parser/testrunner"
+	"github.com/matthewmcneely/gqlparser/ast"
+	"github.com/matthewmcneely/gqlparser/parser/testrunner"
 )
 
 func TestSchemaDocument(t *testing.T) {
@@ -18,7 +18,7 @@ func TestSchemaDocument(t *testing.T) {
 			}
 		}
 		return testrunner.Spec{
-			AST:   ast.Dump(doc),
+			AST: ast.Dump(doc),
 		}
 	})
 }

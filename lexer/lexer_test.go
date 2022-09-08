@@ -1,11 +1,12 @@
 package lexer
 
 import (
-	"github.com/vektah/gqlparser/v2/gqlerror"
 	"testing"
 
-	"github.com/vektah/gqlparser/v2/ast"
-	"github.com/vektah/gqlparser/v2/parser/testrunner"
+	"github.com/matthewmcneely/gqlparser/gqlerror"
+
+	"github.com/matthewmcneely/gqlparser/ast"
+	"github.com/matthewmcneely/gqlparser/parser/testrunner"
 )
 
 func TestLexer(t *testing.T) {

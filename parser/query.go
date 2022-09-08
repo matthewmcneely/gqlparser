@@ -1,9 +1,9 @@
 package parser
 
 import (
-	"github.com/vektah/gqlparser/v2/lexer"
+	"github.com/matthewmcneely/gqlparser/lexer"
 
-	. "github.com/vektah/gqlparser/v2/ast"
+	. "github.com/matthewmcneely/gqlparser/ast"
 )
 
 func ParseQuery(source *Source) (*QueryDocument, error) {

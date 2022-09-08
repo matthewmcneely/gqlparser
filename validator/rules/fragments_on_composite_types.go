@@ -3,8 +3,8 @@ package validator
 import (
 	"fmt"
 
-	"github.com/vektah/gqlparser/v2/ast"
-	. "github.com/vektah/gqlparser/v2/validator"
+	"github.com/matthewmcneely/gqlparser/ast"
+	. "github.com/matthewmcneely/gqlparser/validator"
 )
 
 func init() {
